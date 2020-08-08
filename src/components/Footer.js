@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classes from './App.module.css'
+import classes from '../App.module.css'
 
 class Footer extends Component {
     state = {  };

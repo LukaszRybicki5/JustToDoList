@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classes from './App.module.css'
+import classes from '../App.module.css'
 import ToDoItem from './ToDoItem'
 
 class ListToDo extends Component {
@@ -7,9 +7,9 @@ class ListToDo extends Component {
     render() { 
         return (
             <div className={classes.ToDoList}> 
-                <ToDoItem/> 
-                <ToDoItem/>
-                <ToDoItem/>             
+                <ToDoItem name="Interesting"/> 
+                <ToDoItem name="Curios"/>
+                <ToDoItem name="Funny"/>             
             </div>
         );
     }

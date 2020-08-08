@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Footer from './Footer'
-import Navbar from './Navbar'
-import ToDoList from './ToDoList'
-
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
+import ToDoList from './components/ToDoList'
 
 ReactDOM.render(
   <React.StrictMode>
