@@ -5,15 +5,14 @@ import ToDoItem from './ToDoItem'
 class ListToDo extends Component {
     state = { 
         items: [
-            {id: 1, value: 4, task: "Wynieś śmieci"},
-            {id: 2, value: 3, task: "Obierz ziemniaki"},
-            {id: 3, value: 0, task: "Wypierz skarpety"},
-            {id: 14, value: 1, task: "Szpachluj ścianę"},
+            {id: 1, value: 4, task: "Wynieś śmieci", checked: false},
+            {id: 2, value: 3, task: "Obierz ziemniaki", checked: false},
+            {id: 3, value: 0, task: "Wypierz skarpety", checked: false},
+            {id: 14, value: 1, task: "Szpachluj ścianę", checked: false},
         ],
     }
 
     showAlert = (item) => {
-        console.log("Hej");
         const items = [...this.state.items];
              const index = items.indexOf(item);
              items[index] = {...item};
@@ -22,26 +21,24 @@ class ListToDo extends Component {
              console.log("klik", items[index].id );
     }
 
-    writeGrass =() => {
-        console.log("Done")
-    }
-
-    writeTrash = () => {
-        console.log("Trash")
+    handleCheckBox = (item) => {
+        const items = [...this.state.items];
+             const index = items.indexOf(item);
+             items[index] = {...item};
+             items[index].checked = !items[index].checked
+             this.setState({ items })
+             console.log("klik", items[index].checked, items[index].id);
     }
 
     render() { 
         return (
             <div>
-                <img src="https://www.rp.pl/apps/pbcsi.dll/storyimage/RP/20170316/ROH/303169854/AR/0/AR-303169854.jpg?imageversion=Artykul&lastModified=20170317143817"
-                    onDrag  ={this.writeGrass}
-                    onClick   ={this.writeTrash} 
-                />
             <div className={classes.ToDoList}> 
               {this.state.items.map(item => 
                 <ToDoItem
                 key={item.id}
                 onCheck={this.showAlert}
+                onChanged={this.handleCheckBox}
                 item={item}
                 > 
                 <p>{item.id}</p>
